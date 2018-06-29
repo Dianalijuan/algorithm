@@ -22,10 +22,8 @@ public class IntegerReverse {
         }
         return result;
     }
-
     public static void main(String[] args) {
           //静态方法里面只能调用静态方法
         System.out.println(reserve());
     }
-
 }
