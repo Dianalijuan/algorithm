@@ -1,3 +1,5 @@
+package com;
+
 /**
  * 给定一个 32 位有符号整数，将整数中的数字进行反转。
  * 输入: 123      输入: -123        输入: 120
@@ -6,7 +8,6 @@
  * 根据这个假设，如果反转后的整数溢出，则返回 0。
  */
 public class IntegerReverse {
-
     private static int reserve() {
         int num = -63954;
         int result = 0;
@@ -23,7 +24,7 @@ public class IntegerReverse {
         return result;
     }
     public static void main(String[] args) {
-          //静态方法里面只能调用静态方法
+        //静态方法里面只能调用静态方法
         System.out.println(reserve());
     }
 }
