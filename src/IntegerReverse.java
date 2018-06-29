@@ -1,25 +1,31 @@
-import org.junit.Test;
-
-import static java.lang.Math.*;
-
 /**
  * 给定一个 32 位有符号整数，将整数中的数字进行反转。
- * 输入: 123
- * 输出: 321
- *
- * 输入: -123
- * 输出: -321
- *
- * 输入: 120
- * 输出: 21
+ * 输入: 123      输入: -123        输入: 120
+ * 输出: 321      输出: -321        输出: 21
+ * 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。
+ * 根据这个假设，如果反转后的整数溢出，则返回 0。
  */
 public class IntegerReverse {
-    public static void main(String[] args) {
-        int num = -210;
-        if (pow(-2, 31) < num && num < pow(2, 31 - 1)) {
-            int temp = num / 100 + (num % 100 / 10) * 10 + (num % 100 % 10) * 100;
-            System.out.println(temp);
+
+    private static int reserve() {
+        int num = -63954;
+        int result = 0;
+        while (num != 0 && Math.pow(-2, 31) < num && num < Math.pow(2, 31)) {
+            int temp = num % 10;
+            result = result * 10 + temp;
+            //判断反转时是否溢出
+            if (result > Math.pow(2, 31) - 1 || result < Math.pow(-2, 31) + 1) {
+                System.out.println(0);
+                return 0;
+            }
+            num /= 10;
         }
-        return;
+        return result;
     }
+
+    public static void main(String[] args) {
+          //静态方法里面只能调用静态方法
+        System.out.println(reserve());
+    }
+
 }
